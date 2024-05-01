@@ -20,10 +20,13 @@ const MenuLink = ({ icon, children, ...rest }) => (
   </Button>
 );
 
-const SidebarContent = ({ onClose }) => (
+const SidebarContent = ({ onClose, handleLogout }) => (
   <VStack align="stretch" p={5}>
     <MenuLink icon={<FaUser />} onClick={onClose}>
       Profile
+      <Button onClick={handleLogout} size="sm" variant="ghost">
+        Logout
+      </Button>
     </MenuLink>
     <MenuLink icon={<FaAddressBook />} onClick={onClose}>
       Contacts
@@ -71,7 +74,13 @@ const Index = () => {
         <Flex>
           <IconButton icon={<FaBars />} variant="outline" onClick={onOpen} aria-label="Open Menu" />
           <Spacer />
-          {isLoggedIn ? <Button onClick={handleLogout}>Logout</Button> : <Button onClick={() => setIsLoggedIn(true)}>Login</Button>}
+          {isLoggedIn ? (
+            <Button leftIcon={<FaUser />} onClick={onClose}>
+              Profile
+            </Button>
+          ) : (
+            <Button onClick={() => setIsLoggedIn(true)}>Login</Button>
+          )}
         </Flex>
 
         <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
@@ -80,7 +89,7 @@ const Index = () => {
             <DrawerCloseButton />
             <DrawerHeader borderBottomWidth="1px">Menu</DrawerHeader>
             <DrawerBody>
-              <SidebarContent onClose={onClose} />
+              <SidebarContent onClose={onClose} handleLogout={handleLogout} />
             </DrawerBody>
           </DrawerContent>
         </Drawer>
