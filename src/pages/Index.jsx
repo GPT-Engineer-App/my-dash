@@ -71,7 +71,7 @@ const Index = () => {
         <Flex>
           <IconButton icon={<FaBars />} variant="outline" onClick={onOpen} aria-label="Open Menu" />
           <Spacer />
-          {isLoggedIn ? <Button onClick={handleLogout}>Logout</Button> : <Button onClick={() => setIsLoggedIn(true)}>Login</Button>}
+          <IconButton icon={<FaUser />} onClick={isLoggedIn ? () => navigate("/profile") : onOpen} aria-label={isLoggedIn ? "Go to Profile" : "Open Login"} />
         </Flex>
 
         <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
