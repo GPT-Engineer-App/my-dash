@@ -4,7 +4,7 @@ import Profile from "./pages/Profile.jsx";
 import Contacts from "./pages/Contacts.jsx";
 import Drive from "./pages/Drive.jsx";
 import Health from "./pages/Health.jsx";
-import Assets from "./pages/Assets.jsx";
+import Artifacts from "./pages/Artifacts.jsx";
 import Chat from "./pages/Chat.jsx";
 import Maps from "./pages/Maps.jsx";
 import Notes from "./pages/Notes.jsx";
@@ -18,7 +18,7 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/drive" element={<Drive />} />
         <Route path="/health" element={<Health />} />
-        <Route path="/assets" element={<Assets />} />
+        <Route path="/artifacts" element={<Artifacts />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/maps" element={<Maps />} />
         <Route path="/notes" element={<Notes />} />

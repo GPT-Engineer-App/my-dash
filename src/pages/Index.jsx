@@ -1,6 +1,7 @@
 // Complete the Index page component here
 // Use chakra-ui
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChakraProvider, Box, VStack, Button, Text, Input, Checkbox, extendTheme, Flex, Spacer, IconButton, useDisclosure, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Link } from "@chakra-ui/react";
 import { FaUser, FaAddressBook, FaFile, FaHeartbeat, FaDollarSign, FaComments, FaMapMarkedAlt, FaStickyNote, FaBars } from "react-icons/fa";
 
@@ -22,28 +23,76 @@ const MenuLink = ({ icon, children, ...rest }) => (
 
 const SidebarContent = ({ onClose }) => (
   <VStack align="stretch" p={5}>
-    <MenuLink icon={<FaUser />} onClick={onClose}>
+    <MenuLink
+      icon={<FaUser />}
+      onClick={() => {
+        navigate("/profile");
+        onClose();
+      }}
+    >
       Profile
     </MenuLink>
-    <MenuLink icon={<FaAddressBook />} onClick={onClose}>
+    <MenuLink
+      icon={<FaAddressBook />}
+      onClick={() => {
+        navigate("/contacts");
+        onClose();
+      }}
+    >
       Contacts
     </MenuLink>
-    <MenuLink icon={<FaFile />} onClick={onClose}>
+    <MenuLink
+      icon={<FaFile />}
+      onClick={() => {
+        navigate("/drive");
+        onClose();
+      }}
+    >
       Drive
     </MenuLink>
-    <MenuLink icon={<FaHeartbeat />} onClick={onClose}>
+    <MenuLink
+      icon={<FaHeartbeat />}
+      onClick={() => {
+        navigate("/health");
+        onClose();
+      }}
+    >
       Health
     </MenuLink>
-    <MenuLink icon={<FaDollarSign />} onClick={onClose}>
+    <MenuLink
+      icon={<FaDollarSign />}
+      onClick={() => {
+        navigate("/artifacts");
+        onClose();
+      }}
+    >
       Assets
     </MenuLink>
-    <MenuLink icon={<FaComments />} onClick={onClose}>
+    <MenuLink
+      icon={<FaComments />}
+      onClick={() => {
+        navigate("/chat");
+        onClose();
+      }}
+    >
       Chat
     </MenuLink>
-    <MenuLink icon={<FaMapMarkedAlt />} onClick={onClose}>
+    <MenuLink
+      icon={<FaMapMarkedAlt />}
+      onClick={() => {
+        navigate("/maps");
+        onClose();
+      }}
+    >
       Maps
     </MenuLink>
-    <MenuLink icon={<FaStickyNote />} onClick={onClose}>
+    <MenuLink
+      icon={<FaStickyNote />}
+      onClick={() => {
+        navigate("/notes");
+        onClose();
+      }}
+    >
       Notes
     </MenuLink>
   </VStack>

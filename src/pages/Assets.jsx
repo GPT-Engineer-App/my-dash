@@ -1,7 +1,6 @@
 import React from "react";
 
-function Assets() {
-  return <div>This is the Assets page.</div>;
+function Artifacts() {
+  return <div>This is the Artifacts page.</div>;
 }
-
-export default Assets;
+export default Artifacts;
