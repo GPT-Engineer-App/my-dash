@@ -1,7 +1,7 @@
 // Complete the Index page component here
 // Use chakra-ui
 import React, { useState } from "react";
-import { ChakraProvider, Box, VStack, Button, Text, Input, extendTheme, Flex, Spacer, IconButton, useDisclosure, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Link } from "@chakra-ui/react";
+import { ChakraProvider, Box, VStack, Button, Text, Input, Checkbox, extendTheme, Flex, Spacer, IconButton, useDisclosure, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Link } from "@chakra-ui/react";
 import { FaUser, FaAddressBook, FaFile, FaHeartbeat, FaDollarSign, FaComments, FaMapMarkedAlt, FaStickyNote, FaBars } from "react-icons/fa";
 
 const theme = extendTheme({
@@ -54,6 +54,7 @@ const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = () => {
     // Placeholder for login logic
@@ -88,6 +89,9 @@ const Index = () => {
           <VStack spacing={4} align="stretch" mt={10}>
             <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <Checkbox isChecked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}>
+              Remember Me
+            </Checkbox>
             <Button onClick={handleLogin}>Login</Button>
           </VStack>
         ) : (
